@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'a2jWizard';
+  title = 'the Family Law Document Preparation Wizard';
 }

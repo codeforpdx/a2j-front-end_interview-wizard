@@ -1,7 +1,3 @@
-
-
-
-
 export interface Question {
     formId: string;  //Identifies the properties of the form
     questionId: string;  //  Need
