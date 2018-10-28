@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { questions } from './Questions.js'
+import { Question, ExampleQuestion } from './Questions.js'
+
+
+//TODO: Replace the below import with what we get from a database
+
+import { questions } from './mockQuestions';
 
 
 @Component({
@@ -14,28 +19,40 @@ export class WizardFormComponent implements OnInit {
   Type declarations
   =========*/
 
+   public textarea: string;
+   public text: string;
+   public password: string;
+   public select: string;
+   public radio: boolean;
+   public date: Date;
 
 
-interface Question {
-    formId: string;
-    questionId: string;
-    question: string;
-    type: textarea | text | password | select | radio | date;
-    answerType: string | number | date | //...;
-    answers: answerType[];  //an array of answerTypes
-    controls : {
-        validationControls: email | password| date | locked //....other validators
-        submitHandler : onSubmit()
-    };
-    questionUpdatedOn: Date;
-    answeredOn: Date
-}
+  /*============
+   Component model declarations
+  ============*/    
+
+   questions_list = questions;
 
   public name = '';
 
 
   public address = {
 
+  }
+
+
+  pullQuestionsFromDataSource(){
+    //TODO: for each 
+  }
+
+
+  verifyLitigationType(response_type){
+
+  }
+
+  retrieveQuestions(){
+    //For each question in litigation type: 
+      //
   }
 
   verifyAnswers(answers){
@@ -46,25 +63,22 @@ interface Question {
   }
 
   constructor() {
-
-    /*
-    this.questions = {
-      first_name: "foo",
-      last_name: "bar"
-    } */
+ 
 
   }
 
 
   ngOnInit() {
-
-    //var questions = new Question;
-    var questions = ["foo", "bar"]
+    //fetch question Data from model 
 
   }
 
-  public onclick(){
+  public submitForm(){
   	console.log('Output'+this.name);
+
+    //TODO: document.getelementByID
+    //TODO: Verify it's working and then call the submit form function (or the "pullQuestionsFromDataSource" function???)
+
   }
 
 }

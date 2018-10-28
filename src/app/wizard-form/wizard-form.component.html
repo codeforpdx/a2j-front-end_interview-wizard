@@ -1,17 +1,14 @@
-<form (submit)="verifyAnswers()">
-
-	<h2>{{name_last}}</h2>
-
+<form id = "answer_form">
 
 	<!-- For each question in the "questions object", add one div with the class depending on the response type -->
-	<div *ngFor="let question of questions" class="question_"+{{question.response_type}}>
 		<!-- Fetch the question's question -->
-		<label *ngFor="let question of questions">{{question.question_q}}: </label>
-
+	<div *ngFor="let question of questions_list">
+		<label>{{question.question_name}}:</label>
 		<!-- Listen for the user's response and store it in an equivalent item in the controller (model?  Whatever the tempate is) -->
-		<input *ngFor="let question of questions" name="name_input_last" (input)="wizard-form$event.target.value" [(ngModel)]={{name_last}} />
+		<input name="question.question_name" (input)="wizard-form$event.target.value"  />
 	</div>
 
 
-	<button (click)="onclick()">SUBMIT</button>
+	<button (click)="submitForm()">SUBMIT</button>
+
 </form>
