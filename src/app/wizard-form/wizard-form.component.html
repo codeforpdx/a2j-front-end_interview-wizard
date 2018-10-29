@@ -1,8 +1,14 @@
-<p>
-  wizard-form works!
-</p>
-<form>
-	<label>What is your name?</label>
-	<input name="name_input" [(ngModel)]="name" />
-	<button (click)="onclick()">SUBMIT</button>
+<form id = "answer_form">
+
+	<!-- For each question in the "questions object", add one div with the class depending on the response type -->
+		<!-- Fetch the question's question -->
+	<div *ngFor="let question of questions_list">
+		<label class="question_label_text">{{question.question_name}}:</label>
+		<!-- Listen for the user's response and store it in an equivalent item in the controller (model?  Whatever the tempate is) -->
+		<input name="question.question_name" (input)="wizard-form$event.target.value"  />
+	</div>
+
+
+	<button (click)="submitForm()">SUBMIT</button>
+
 </form>
