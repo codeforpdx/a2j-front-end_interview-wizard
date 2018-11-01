@@ -18,8 +18,8 @@ export interface Question {
 
 
 export class ExampleQuestion {
-    question_name : "What is your Name?",
-    response_type : 'shortText'
+    question_name : "What is your Name?";
+    response_type : 'shortText';
 }
 
 //Need a userID? 
