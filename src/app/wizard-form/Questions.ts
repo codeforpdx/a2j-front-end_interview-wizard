@@ -14,12 +14,12 @@ export interface Question {
     };
     questionUpdatedOn: Date;
     answeredOn: Date;
-}
+};
 
 
 export class ExampleQuestion {
     question_name : "What is your Name?";
     response_type : 'shortText';
-}
+};
 
 //Need a userID? 

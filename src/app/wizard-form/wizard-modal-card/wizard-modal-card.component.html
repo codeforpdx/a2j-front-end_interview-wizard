@@ -2,18 +2,10 @@
   wizard-modal-card works!
 </p>
 
-<!-- 
-for each questionView in question_views 
-		
-
-
--->
-
-<mat-horizontal-stepper [linear]="true" #stepper>
-		<mat-step *ngFor="view in question_views.viewList" [stepContro]="idk_what_this_is">
-			<form>
-		      <ng-template matStepLabel>{{view.viewName}}</ng-template>
-		      <mat-form-field *ngFor="question in view.viewQuestions">
+<mat-horizontal-stepper linear="Enable linear mode" #stepper>
+		<mat-step *ngFor="let view of stepper_views" [label]="view.viewName" [stepControl]="view.key">
+			<form [formGroup] = "view.key">
+		      <mat-form-field *ngFor="let question of view.viewQuestions">
 		        <input matInput [placeholder]="question.question_name" formControlName="firstCtrl" [required]="question.required">
 		      </mat-form-field>
 		      <div>
