@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 
 
 
@@ -21,9 +21,8 @@ import { UserDocumentsListComponent } from './user-documents-list/user-documents
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule,
-    MatButtonModule, 
-    MatCheckboxModule
+    [BrowserAnimationsModule],
+    [MatButtonModule,MatCheckboxModule]
   ],
   providers: [],
   bootstrap: [AppComponent]
