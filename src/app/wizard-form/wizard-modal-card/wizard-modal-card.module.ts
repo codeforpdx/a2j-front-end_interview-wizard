@@ -8,6 +8,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatStepperModule} from '@angular/material/stepper';
+
+
+import mockViews from '../question_views';
+
 
 @NgModule({
   	imports: [CommonModule, MatButtonModule, MatCheckboxModule, MatCardModule, MatInputModule, MatDatepickerModule, MatFormFieldModule, MatRadioModule],
@@ -17,8 +22,11 @@ import {MatRadioModule} from '@angular/material/radio';
 
 export class WizardModalCardModule {
 
+	/*=============
+	Variable declarations
+	=============*/
 
-
+	question_views = mockViews;
 
 
 	constructor(){
