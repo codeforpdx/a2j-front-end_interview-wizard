@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatInputModule, MatStepperModule } from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatInputModule, MatSelectModule, MatStepperModule} from '@angular/material';
 
 
 
@@ -12,8 +12,9 @@ import { WizardFormComponent } from './wizard-form/wizard-form.component';
 import { WizardModalCardComponent } from './wizard-form/wizard-modal-card/wizard-modal-card.component';
 import { UserDocumentsListComponent } from './user-documents-list/user-documents-list.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { StepFormInputComponent } from './step-form/step-form-input/step-form-input.component';
-import { StepFormComponent } from './step-form/step-form.component';
+import { StepFormInputComponent } from './stepper/step-form/step-form-input/step-form-input.component';
+import { StepFormComponent } from './stepper/step-form/step-form.component';
+import { StepperComponent } from './stepper/stepper.component';
 
 /*==========
 Material Imports
@@ -25,6 +26,7 @@ const material_modules = [
   MatStepperModule,
   MatFormFieldModule,
   MatInputModule,
+  MatSelectModule,
 ];
 
 @NgModule({
@@ -34,7 +36,8 @@ const material_modules = [
     UserDocumentsListComponent,
     WizardModalCardComponent,
     StepFormInputComponent,
-    StepFormComponent
+    StepFormComponent,
+    StepperComponent
   ],
   imports: [
     BrowserModule,

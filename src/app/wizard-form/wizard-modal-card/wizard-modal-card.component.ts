@@ -1,16 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-import {MatCardModule} from '@angular/material/card';
-import {MatInputModule} from '@angular/material/input';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatRadioModule} from '@angular/material/radio';
-import { MatStepperModule } from '@angular/material/stepper';
-
 import { mockViews } from '../question_views';
-import {Question} from '../Questions';
+import { StepFormQuestionsGroup } from '../../stepper/step-form/step-form.component';
+import { FAKE_STEP_QUESTIONS } from '../../FakeData/fake-questions-data';
 
 
 @Component({
@@ -19,49 +10,38 @@ import {Question} from '../Questions';
   styleUrls: ['./wizard-modal-card.component.scss']
 })
 export class WizardModalCardComponent implements OnInit {
-
-	// /*=============
-	// Variable declarations
-	// =============*/
-  //
-	// public question_viewlist = mockViews;
-	// public stepper_views = this.question_viewlist.question_views.viewList;
-  //
-	//
-  //
-	// public question_formGroup : FormGroup = new FormGroup({});
-  //
-	// constructor(){
-	// 	console.log("component constructed!");
-	// }
-  //
-	// ngOnInit(){
-  //
-	// 	console.log("component started!");
-  //
-	// 	console.log("stepper_views recieved is:"+this.stepper_views);
-	// }
-
   isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-
-  constructor(private _formBuilder: FormBuilder) {}
+  fakeQuestionsData: StepFormQuestionsGroup[] = FAKE_STEP_QUESTIONS;
+  constructor() {}
 
   ngOnInit() {
     // this is what I was saying about the key, "firstCtrl" and "firstFormGroup"
     // being defined and if we have dynamic questions it would
     // mean dynamic controls and that means generating dynamic keys. Doable, just hack-y,
     // I think I can make a reusable form component and it would solve that problem, or at least hide it.
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
+    // this.firstFormGroup = this._formBuilder.group({
+    //   firstCtrl: ['', Validators.required]
+    // });
+    // this.secondFormGroup = this._formBuilder.group({
+    //   secondCtrl: ['', Validators.required]
+    // });
   }
 
-  public retreiveQuestions(): Question {
+}
 
-  }
+export interface MockViews {
+  question_views: {
+    viewList: MockView[];
+  };
+}
+
+export interface MockView {
+  viewName: string;
+  viewQuestions: MockQuestion[];
+}
+
+export interface MockQuestion {
+  question_name: string;
+  material_type: string;
+  required: boolean;
 }

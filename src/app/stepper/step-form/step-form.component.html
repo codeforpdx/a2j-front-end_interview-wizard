@@ -1,0 +1,7 @@
+<mat-step [stepControl]="formGroup" >
+  <div [formArrayName]="name">
+    <div *ngIf="formReady">
+      <app-step-form-input *ngFor="let question of questions" [model]="answers[question.id]" (modelChanges)="handleOnInput($event)" [inputType]="question.type" [placeholder]="!!question.placeholder ? question.placeholder: ''"></app-step-form-input>
+    </div>
+  </div>
+</mat-step>

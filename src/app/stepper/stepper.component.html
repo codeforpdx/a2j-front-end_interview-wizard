@@ -1,0 +1,27 @@
+<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button>
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step *ngFor="let formGroup of formGroups; let i = index;" [stepControl]="formGroup.group">
+    <form [formGroup]="formGroup.group">
+      <div *ngFor="let question of formGroup.questions">
+        <ng-template matStepLabel>{{question.label}}</ng-template>
+        <mat-form-field>
+          <input matInput [formControlName]="question.id">
+        </mat-form-field>
+      </div>
+      <div>
+        <button *ngIf="i > 0" mat-button matStepperPrevious="">Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
