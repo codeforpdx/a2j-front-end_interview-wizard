@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup,ReactiveFormsModule } from '@angular/forms';
 
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
@@ -7,7 +8,6 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatRadioModule} from '@angular/material/radio';
 import { MatStepperModule } from '@angular/material/stepper';
-import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { mockViews } from '../question_views';
 
@@ -22,9 +22,12 @@ export class WizardModalCardComponent implements OnInit {
 	Variable declarations
 	=============*/
 
-	question_viewlist = mockViews;
-		stepper_views = question_viewlist.question_views.viewList;
+	public question_viewlist = mockViews;
+	public stepper_views = this.question_viewlist.question_views.viewList;
 
+	
+
+	public question_formGroup : FormGroup = new FormGroup({});
 
 	constructor(){
 		console.log("component constructed!");
@@ -34,7 +37,7 @@ export class WizardModalCardComponent implements OnInit {
 
 		console.log("component started!");
 
-		console.log("stepper_views recieved is:"+stepper_views);
+		console.log("stepper_views recieved is:"+this.stepper_views);
 	}
 
 

@@ -3,10 +3,10 @@
 </p>
 
 <mat-horizontal-stepper  #stepper>
-		<mat-step *ngFor="let view of stepper_views" [label]="view.viewName" [stepControl]="view.key">
-			<form [formGroup] = "view.key">
+		<mat-step *ngFor="let view of stepper_views" [label]="view.viewName" [stepControl]="$index">
+			<form [formGroup]="question_formGroup">
 		      <mat-form-field *ngFor="let question of view.viewQuestions">
-		        <input matInput [placeholder]="question.question_name" formControlName="firstCtrl" [required]="question.required">
+		        <input [name]="question.question_name" matInput [placeholder]="question.question_name" [formControlName]="question.question_name+'Ctrl'" [required]="question.required">
 		      </mat-form-field>
 		      <div>
 		        <button mat-button matStepperNext>Next</button>
