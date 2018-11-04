@@ -2,15 +2,52 @@
   wizard-modal-card works!
 </p>
 
-<mat-horizontal-stepper  #stepper>
-		<mat-step *ngFor="let view of stepper_views" [label]="view.viewName" [stepControl]="$index">
-			<form [formGroup]="question_formGroup">
-		      <mat-form-field *ngFor="let question of view.viewQuestions">
-		        <input [name]="question.question_name" matInput [placeholder]="question.question_name" [formControlName]="question.question_name+'Ctrl'" [required]="question.required">
-		      </mat-form-field>
-		      <div>
-		        <button mat-button matStepperNext>Next</button>
-		      </div>				
-			</form>
-		</mat-step>
+<!--<mat-horizontal-stepper  #stepper>-->
+		<!--<mat-step *ngFor="let view of stepper_views" [label]="view.viewName" [stepControl]="$index">-->
+			<!--<form [formGroup]="question_formGroup">-->
+		      <!--<mat-form-field *ngFor="let question of view.viewQuestions">-->
+		        <!--<input [name]="question.question_name + 'Input'" matInput [placeholder]="question.question_name"  [optional]="question.required">-->
+		      <!--</mat-form-field>-->
+		      <!--<div>-->
+		        <!--<button mat-button matStepperNext>Next</button>-->
+		      <!--</div>				-->
+			<!--</form>-->
+		<!--</mat-step>-->
+<!--</mat-horizontal-stepper>-->
+
+<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button>
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field>
+        <input MatFormFieldControl matInput placeholder="Address" formControlName="secondCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
 </mat-horizontal-stepper>

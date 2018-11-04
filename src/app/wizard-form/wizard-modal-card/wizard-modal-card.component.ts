@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,ReactiveFormsModule } from '@angular/forms';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
@@ -18,27 +18,41 @@ import { mockViews } from '../question_views';
 })
 export class WizardModalCardComponent implements OnInit {
 
-	/*=============
-	Variable declarations
-	=============*/
+	// /*=============
+	// Variable declarations
+	// =============*/
+  //
+	// public question_viewlist = mockViews;
+	// public stepper_views = this.question_viewlist.question_views.viewList;
+  //
+	//
+  //
+	// public question_formGroup : FormGroup = new FormGroup({});
+  //
+	// constructor(){
+	// 	console.log("component constructed!");
+	// }
+  //
+	// ngOnInit(){
+  //
+	// 	console.log("component started!");
+  //
+	// 	console.log("stepper_views recieved is:"+this.stepper_views);
+	// }
 
-	public question_viewlist = mockViews;
-	public stepper_views = this.question_viewlist.question_views.viewList;
+  isLinear = false;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
 
-	
+  constructor(private _formBuilder: FormBuilder) {}
 
-	public question_formGroup : FormGroup = new FormGroup({});
-
-	constructor(){
-		console.log("component constructed!");
-	}
-
-	ngOnInit(){
-
-		console.log("component started!");
-
-		console.log("stepper_views recieved is:"+this.stepper_views);
-	}
-
+  ngOnInit() {
+    this.firstFormGroup = this._formBuilder.group({
+      firstCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      secondCtrl: ['', Validators.required]
+    });
+  }
 
 }
