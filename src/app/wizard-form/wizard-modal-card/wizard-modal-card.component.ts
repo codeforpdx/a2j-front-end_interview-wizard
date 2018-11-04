@@ -10,6 +10,8 @@ import {MatRadioModule} from '@angular/material/radio';
 import { MatStepperModule } from '@angular/material/stepper';
 
 import { mockViews } from '../question_views';
+import {Question} from '../Questions';
+
 
 @Component({
   selector: 'app-wizard-modal-card',
@@ -47,6 +49,10 @@ export class WizardModalCardComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit() {
+    // this is what I was saying about the key, "firstCtrl" and "firstFormGroup"
+    // being defined and if we have dynamic questions it would
+    // mean dynamic controls and that means generating dynamic keys. Doable, just hack-y,
+    // I think I can make a reusable form component and it would solve that problem, or at least hide it.
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
@@ -55,4 +61,7 @@ export class WizardModalCardComponent implements OnInit {
     });
   }
 
+  public retreiveQuestions(): Question {
+
+  }
 }

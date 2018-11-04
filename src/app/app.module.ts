@@ -12,6 +12,8 @@ import { WizardFormComponent } from './wizard-form/wizard-form.component';
 import { WizardModalCardComponent } from './wizard-form/wizard-modal-card/wizard-modal-card.component';
 import { UserDocumentsListComponent } from './user-documents-list/user-documents-list.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { StepFormInputComponent } from './step-form/step-form-input/step-form-input.component';
+import { StepFormComponent } from './step-form/step-form.component';
 
 /*==========
 Material Imports
@@ -30,7 +32,9 @@ const material_modules = [
     AppComponent,
     WizardFormComponent,
     UserDocumentsListComponent,
-    WizardModalCardComponent
+    WizardModalCardComponent,
+    StepFormInputComponent,
+    StepFormComponent
   ],
   imports: [
     BrowserModule,
