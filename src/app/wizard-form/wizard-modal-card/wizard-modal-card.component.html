@@ -2,7 +2,7 @@
   wizard-modal-card works!
 </p>
 
-<mat-horizontal-stepper linear="Enable linear mode" #stepper>
+<mat-horizontal-stepper  #stepper>
 		<mat-step *ngFor="let view of stepper_views" [label]="view.viewName" [stepControl]="view.key">
 			<form [formGroup] = "view.key">
 		      <mat-form-field *ngFor="let question of view.viewQuestions">
