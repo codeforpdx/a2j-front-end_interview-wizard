@@ -10,7 +10,7 @@ export interface Question {
     //The compiler doesn't like this... 
     //Do I have to define it first?  The compiler didn't throw an error earlier...
     //
-    // -Rex-Response-the key "answers" seems to imply an array of answers, if that's true then I suggest an string[] | number[] | date[] type decleration
+    // -Rex-Response-the key "answers" seems to imply an array of answers, if that's true then I suggest an string[] | number[] | date[] type declaration
     controls : {
         validationControls: 'email' | 'password' | 'date' | 'locked'; //....other validators <--Rex-Response-There is a Validator Class Type in Angular, it would be what we can store in here for a more dynamic approach though the validator would have to be stored or generated and attached.
         submitHandler : () => void; //Where do I define this function? <--Rex-Response-An interface is like a template for an Object,
