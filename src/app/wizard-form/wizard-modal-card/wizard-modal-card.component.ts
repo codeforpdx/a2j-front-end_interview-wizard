@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { mockViews } from '../question_views';
-import { StepFormQuestionsGroup } from '../../stepper/step-form/step-form.component';
 import { FAKE_STEP_QUESTIONS } from '../../FakeData/fake-questions-data';
+import { StepFormQuestionsGroup } from '../../stepper/stepper.component';
 
 
 @Component({
@@ -10,7 +10,6 @@ import { FAKE_STEP_QUESTIONS } from '../../FakeData/fake-questions-data';
   styleUrls: ['./wizard-modal-card.component.scss']
 })
 export class WizardModalCardComponent implements OnInit {
-  isLinear = false;
   fakeQuestionsData: StepFormQuestionsGroup[] = FAKE_STEP_QUESTIONS;
   constructor() {}
 

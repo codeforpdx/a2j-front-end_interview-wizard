@@ -1,6 +1,30 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {StepFormQuestion, StepFormQuestionsGroup} from './step-form/step-form.component';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { StepFormInputType } from './step-form-input/step-form-input.component';
+
+export interface StepFormQuestionsGroup {
+  name: string;
+  label: string;
+  questions: StepFormQuestion[];
+}
+
+export interface StepFormQuestion {
+  id: string | number;
+  label?: string;
+  placeholder?: string;
+  type: StepFormInputType;
+  selectOptions?: string[];
+  validators?: Validators[];
+}
+
+export interface FinishedMessage {
+  label: string;
+  text: string;
+}
+
+export interface AnswerModels {
+  [name: string]: any;
+}
 
 @Component({
   selector: 'app-stepper',
@@ -9,40 +33,38 @@ import {StepFormQuestion, StepFormQuestionsGroup} from './step-form/step-form.co
 })
 export class StepperComponent implements OnInit {
   @Input() questionGroup: StepFormQuestionsGroup;
+  @Input() finishedMessage: FinishedMessage = {
+    label: 'Done',
+    text: 'You are now done.'
+  };
+  @Input() direction: 'horizontal' | 'vertical' = 'vertical';
   isLinear = false;
   formGroups: any = [];
+  answers: AnswerModels = {};
 
   constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit() {
     for (const group of this.questionGroup) {
       const controls = group.questions.reduce((acc, cur, index) => {
+        this.answers = {...this.answers, [cur.id]: ''};
         return acc = {...acc, [cur.id]: this._formBuilder.control('', Validators.apply([...cur.validators]))};
       }, {});
       console.log(controls);
-      this.formGroups = [ ...this.formGroups, {group: this._formBuilder.group(controls), questions: group.questions}];
+      this.formGroups = [
+        ...this.formGroups,
+        {
+          group: this._formBuilder.group(controls),
+          questions: group.questions,
+          controls: controls,
+          label: group.label
+        }];
     }
     console.log('count', this.formGroups);
   }
-  //
-  // generateFormGroup(): FormArray {
-  //   const controlArray =  this.questions.map((question: StepFormQuestion) => {
-  //     const {type} = question;
-  //     switch (type) {
-  //       case'text':
-  //       case 'textarea':
-  //         return this.fb.control('', Validators.apply([...question.validators]));
-  //       case'date':
-  //         return this.fb.control(null, Validators.apply([...question.validators]));
-  //       case'number':
-  //         return this.fb.control(null, Validators.apply([...question.validators]));
-  //       case'select':
-  //         return this.fb.control([], Validators.apply([...question.validators]));
-  //       default:
-  //         console.error('A question has no type: ', question);
-  //     }
-  //   });
-  //   return this.fb.array(controlArray);
-  // }
+
+  public handleModelChanges(event) {
+    console.log('modelChanged', event);
+  }
 
 }

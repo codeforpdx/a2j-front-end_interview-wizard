@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 
 export type StepFormInputType = 'text' | 'textarea' | 'date' | 'number' | 'select';
 
@@ -14,13 +14,14 @@ export interface AnswerEvent {
   styleUrls: ['./step-form-input.component.scss']
 })
 export class StepFormInputComponent implements OnInit {
+  @Input() formGroup: FormGroup;
+  @Input() id: string | number;
   @Input() label: string;
   @Input() inputType: StepFormInputType;
   @Input() selectOptions: string[]; // Only needed if type is select.
-  @Input() model: any;
+  @Input() formControl: FormControl;
   @Input() placeholder: string;
   @Output() modelChanges: EventEmitter<AnswerEvent> = new EventEmitter<AnswerEvent>();
-  public formControl = new FormControl(this.model);
 
   constructor() { }
 
@@ -28,6 +29,10 @@ export class StepFormInputComponent implements OnInit {
   }
 
   public onValueChange(): void {
-    this.modelChanges.emit(this.formControl.value);
+    console.log(this.id, this.formControl);
+    this.modelChanges.emit({
+      id: this.id,
+      value: this.formControl.value
+    });
   }
 }

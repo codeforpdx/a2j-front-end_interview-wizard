@@ -1,70 +1,64 @@
 import { Validators } from '@angular/forms';
-import {StepFormQuestionsGroup} from '../stepper/step-form/step-form.component';
+import { StepFormQuestionsGroup } from '../stepper/stepper.component';
 
 export const FAKE_STEP_QUESTIONS: StepFormQuestionsGroup[] = [
   {
-    name: 'Address History',
+    name: 'Address',
+    label: 'Please enter your current address.',
     questions: [
       {
         id: 'Address',
         label: 'Address',
         type: 'text',
-        validators: [],
-        required: true
+        validators: [Validators.required],
       },
       {
         id: 'City',
         placeholder: 'City',
         type: 'text',
-        validators: [],
-        required: true
+        validators: [Validators.required],
       },
       {
         id: 'State',
         placeholder: 'State',
         type: 'text',
-        validators: [],
-        required: true
+        validators: [Validators.required],
       },
       {
         id: 'Zipcode',
         placeholder: 'Zip Code',
         type: 'number',
-        validators: [Validators.minLength(5), Validators.maxLength(9)],
-        required: true
+        validators: [Validators.minLength(5), Validators.maxLength(9), Validators.required],
       },
     ]
   },
   {
-    name: 'Address Foo',
+    name: 'Address 2',
+    label: 'Please enter your alternative address.',
     questions: [
       {
         id: 'Address',
         label: 'Address',
         type: 'text',
         validators: [],
-        required: true
       },
       {
         id: 'City',
         placeholder: 'City',
         type: 'text',
         validators: [],
-        required: true
       },
       {
         id: 'State',
         placeholder: 'State',
         type: 'text',
         validators: [],
-        required: true
       },
       {
         id: 'Zipcode',
         placeholder: 'Zip Code',
         type: 'number',
         validators: [Validators.minLength(5), Validators.maxLength(9)],
-        required: true
       },
     ]
   }

@@ -1,19 +1,20 @@
-<div class="step-form-container">
+<div [formGroup]="formGroup">
+
   <label *ngIf="label">
     {{label}}
   </label>
 
   <mat-form-field *ngIf="inputType === 'text'">
-    <input matInput [placeholder]="placeholder" [formControl]="formControl" (input)="onValueChange()">
+    <input matInput [placeholder]="placeholder" [formControlName]="id" (input)="onValueChange()">
   </mat-form-field>
 
   <mat-form-field *ngIf="inputType === 'textarea'">
-    <textarea matInput [placeholder]="placeholder" [formControl]="formControl"  (input)="onValueChange()"></textarea>
+    <textarea matInput [placeholder]="placeholder" [formControlName]="id"  (input)="onValueChange()"></textarea>
   </mat-form-field>
+</div>
 
   <!--<mat-form-field *ngIf="inputType === 'select'">-->
     <!--<mat-select [formControl]="formControl" (selectionChange)="onValueChange()">-->
       <!--<mat-option *ngFor="let option of selectOptions" value="option" >{{option}}</mat-option>-->
     <!--</mat-select>-->
   <!--</mat-form-field>-->
-</div>
