@@ -38,7 +38,7 @@ export class StepperComponent implements OnInit {
     text: 'You are now done.'
   };
   @Input() direction: 'horizontal' | 'vertical' = 'vertical';
-  isLinear = false;
+  isLinear = true;
   formGroups: any = [];
   answers: AnswerModels = {};
 

@@ -30,6 +30,18 @@ export const FAKE_STEP_QUESTIONS: StepFormQuestionsGroup[] = [
         type: 'number',
         validators: [Validators.minLength(5), Validators.maxLength(9), Validators.required],
       },
+      {
+        id: 'What day did you start living here?',
+        placeholder: 'Start Date',
+        type: 'Date',
+        validators: [Validators.required],
+      },
+      {
+        id: 'What day did you stop living here?',
+        placeholder: 'End Date',
+        type: 'Date',
+        validators: [Validators.required],
+      }
     ]
   },
   {
@@ -60,6 +72,19 @@ export const FAKE_STEP_QUESTIONS: StepFormQuestionsGroup[] = [
         type: 'number',
         validators: [Validators.minLength(5), Validators.maxLength(9)],
       },
+      {
+        id: 'What day did you start living here?',
+        placeholder: 'Start Date',
+        type: 'Date',
+        validators: [Validators.required],
+      },
+      {
+        id: 'What day did you stop living here?',
+        placeholder: 'End Date',
+        type: 'Date',
+        validators: [Validators.required],
+      }
+
     ]
-  }
+  },
 ];

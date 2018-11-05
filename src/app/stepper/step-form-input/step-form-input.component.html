@@ -13,6 +13,18 @@
   </mat-form-field>
 
   <!--Todo: Needs Select / Scrub / Date Picker -->
+
+  <mat-form-field *ngIf="inputType === 'select' && id ==='State'">
+    <select matInput [formControlName]="id">
+      <option *ngFor="let state of state_list">{{state}}</option>
+    </select>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="inputType === 'Date'">
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
 </div>
 
   <!--<mat-form-field *ngIf="inputType === 'select'">-->
