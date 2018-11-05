@@ -32,7 +32,7 @@ export interface AnswerModels {
   styleUrls: ['./stepper.component.scss']
 })
 export class StepperComponent implements OnInit {
-  @Input() questionGroup: StepFormQuestionsGroup;
+  @Input() questionGroup: StepFormQuestionsGroup[];
   @Input() finishedMessage: FinishedMessage = {
     label: 'Done',
     text: 'You are now done.'
