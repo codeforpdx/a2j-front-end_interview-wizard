@@ -1,3 +1,5 @@
+import {Validators} from "@angular/forms";
+
 export const mockViews = {
   question_views: {
     viewList: [
@@ -69,4 +71,62 @@ export const mockViews = {
       {}
     ]
   }
-}
+};
+
+export const STEP_QUESTIONS = {
+  question_views: {
+    viewList: [
+      {
+        viewName: 'Address History',
+        viewQuestions: [
+          {
+            id: 'Address Line 1',
+            label: 'Address',
+            type: 'text',
+            required: true
+          },
+          {
+            id: 'City',
+            placeholder: 'City',
+            type: 'text',
+            required: 'true'
+          },
+          {
+            id: 'State',
+            placeholder: 'State',
+            type: 'text',
+            required: 'true'
+          },
+          {
+            id: 'Zipcode',
+            placeholder: 'Zip Code',
+            type: 'number',
+            validators: [Validators.minLength(5), Validators.maxLength(9)],
+            required: 'true'
+          },
+        ]
+      },
+      {
+        viewName: 'Appellant Data',
+        viewQuestions: ''
+      },
+      {
+        viewName: 'Defendent Data',
+        viewQuestions: ''
+      },
+      {
+        viewName: 'Child Data',
+        viewQuestions: ''
+      },
+      {
+        viewName: '',
+        viewQuestions: ''
+      },
+      {
+        viewName: '',
+        viewQuestions: ''
+      },
+      {}
+    ]
+  }
+};
