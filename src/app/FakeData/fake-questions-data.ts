@@ -7,8 +7,8 @@ export const FAKE_STEP_QUESTIONS: StepFormQuestionsGroup[] = [
     label: 'Please enter your current address.',
     questions: [
       {
-        id: 'Address',
-        label: 'Address',
+        id: 'Street',
+        label: 'Street',
         type: 'text',
         validators: [Validators.required],
       },
@@ -37,8 +37,8 @@ export const FAKE_STEP_QUESTIONS: StepFormQuestionsGroup[] = [
     label: 'Please enter your alternative address.',
     questions: [
       {
-        id: 'Address',
-        label: 'Address',
+        id: 'Street',
+        label: 'Street',
         type: 'text',
         validators: [],
       },

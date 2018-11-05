@@ -50,7 +50,6 @@ export class StepperComponent implements OnInit {
         this.answers = {...this.answers, [cur.id]: ''};
         return acc = {...acc, [cur.id]: this._formBuilder.control('', Validators.apply([...cur.validators]))};
       }, {});
-      console.log(controls);
       this.formGroups = [
         ...this.formGroups,
         {
@@ -60,11 +59,10 @@ export class StepperComponent implements OnInit {
           label: group.label
         }];
     }
-    console.log('count', this.formGroups);
   }
 
-  public handleModelChanges(event) {
-    console.log('modelChanged', event);
+  public snapshotModel() {
+    console.log('modelChanged', this.formGroups[0].controls['Street'].value);
   }
 
 }

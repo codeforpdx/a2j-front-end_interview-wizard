@@ -1,18 +1,19 @@
-<!--<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">-->
-  <!--{{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}-->
-<!--</button>-->
 <div *ngIf="direction === 'vertical'">
   <mat-vertical-stepper [linear]="isLinear" #stepper>
+
+  <!-- todo: Find a better way of providing conditional than just cut and pasting the middle of horizontal and vertical. -->
+
     <mat-step *ngFor="let formGroup of formGroups; let i = index;" [stepControl]="formGroup.group">
       <ng-template matStepLabel>{{ formGroup.label }}</ng-template>
       <form [formGroup]="formGroup.group">
         <div *ngFor="let question of formGroup.questions">
-          <app-step-form-input [formGroup]="formGroup.group" [inputType]="question.type" [placeholder]="!!question.placeholder ? question.placeholder : ''"
-                               [label]="question.label" [selectOptions]="[]" [id]="question.id" (modelChanges)="handleModelChanges()"></app-step-form-input>
+          <app-step-form-input [formGroup]="formGroup.group" [inputType]="question.type"
+                               [placeholder]="!!question.placeholder ? question.placeholder : ''"
+                               [label]="question.label" [selectOptions]="[]" [id]="question.id"></app-step-form-input>
         </div>
         <div>
           <button *ngIf="i > 0" mat-raised-button color="accent" matStepperPrevious>Back</button>
-          <button mat-raised-button color="primary" matStepperNext>Next</button>
+          <button mat-raised-button color="primary" matStepperNext (click)="snapshotModel()">Next</button>
         </div>
       </form>
     </mat-step>
@@ -25,20 +26,23 @@
         <button mat-raised-button color="primary">Done</button>
       </div>
     </mat-step>
+
   </mat-vertical-stepper>
 </div>
+
 <div *ngIf="direction === 'horizontal'">
   <mat-horizontal-stepper [linear]="isLinear" #stepper>
     <mat-step *ngFor="let formGroup of formGroups; let i = index;" [stepControl]="formGroup.group">
       <ng-template matStepLabel>{{ formGroup.label }}</ng-template>
       <form [formGroup]="formGroup.group">
         <div *ngFor="let question of formGroup.questions">
-          <app-step-form-input [inputType]="question.type" [placeholder]="!!question.placeholder ? question.placeholder : ''" [formControl]="formGroup.group.controls[question.id]"
-                               [label]="question.label" [selectOptions]="[]" [id]="question.id" (modelChanges)="handleModelChanges()"></app-step-form-input>
+          <app-step-form-input [formGroup]="formGroup.group" [inputType]="question.type"
+                               [placeholder]="!!question.placeholder ? question.placeholder : ''"
+                               [label]="question.label" [selectOptions]="[]" [id]="question.id"></app-step-form-input>
         </div>
         <div>
           <button *ngIf="i > 0" mat-raised-button color="accent" matStepperPrevious>Back</button>
-          <button mat-raised-button color="primary" matStepperNext>Next</button>
+          <button mat-raised-button color="primary" matStepperNext (click)="snapshotModel()">Next</button>
         </div>
       </form>
     </mat-step>
@@ -51,5 +55,6 @@
         <button mat-raised-button color="primary">Done</button>
       </div>
     </mat-step>
+
   </mat-horizontal-stepper>
 </div>
