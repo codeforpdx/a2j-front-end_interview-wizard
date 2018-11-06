@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {
   MatButtonModule, MatCheckboxModule, MatInputModule,
-  MatSelectModule, MatStepperModule
+  MatSelectModule, MatStepperModule, MatDatepickerModule, DateAdapter, MatNativeDateModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -28,6 +28,8 @@ const material_modules = [
   MatFormFieldModule,
   MatInputModule,
   MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule 
 ];
 
 @NgModule({
@@ -47,7 +49,9 @@ const material_modules = [
     [BrowserAnimationsModule],
     ...material_modules
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

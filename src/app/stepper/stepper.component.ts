@@ -14,8 +14,9 @@ export interface StepFormQuestion {
   placeholder?: string;
   type: StepFormInputType;
   selectOptions?: string[];
-  validators?: Validators[];
+  validators?: any[];
 }
+
 
 export interface FinishedMessage {
   label: string;
@@ -41,12 +42,16 @@ export class StepperComponent implements OnInit {
   isLinear = true;
   formGroups: any = [];
   answers: AnswerModels = {};
+  formsReady = false;
 
   constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit() {
+    //build the formGroup.  For each one of the questionGroup,s
+    //
     for (const group of this.questionGroup) {
       const controls = group.questions.reduce((acc, cur, index) => {
+        //todo: make the below line type-safe
         this.answers = {...this.answers, [cur.id]: ''};
         return acc = {...acc, [cur.id]: this._formBuilder.control('', Validators.apply([...cur.validators]))};
       }, {});
@@ -58,7 +63,9 @@ export class StepperComponent implements OnInit {
           controls: controls,
           label: group.label
         }];
+        console.log("Controls are:",controls)
     }
+    this.formsReady = true;
   }
 
   public snapshotModel() {

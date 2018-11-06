@@ -1,4 +1,4 @@
-export const STATE_LIST : state_list[] = [
+export const STATE_LIST : string[] = [
 	'AL - ALABAMA',
 	'AK - ALASKA',
 	'AS - AMERICAN SAMOA',
