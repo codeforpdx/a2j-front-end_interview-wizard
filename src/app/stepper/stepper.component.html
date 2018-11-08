@@ -1,3 +1,8 @@
+<div *ngIf="formsReady">
+
+
+
+
 <div *ngIf="direction === 'vertical'">
   <mat-vertical-stepper [linear]="isLinear" #stepper>
 
@@ -9,7 +14,7 @@
         <div *ngFor="let question of formGroup.questions">
           <app-step-form-input [formGroup]="formGroup.group" [inputType]="question.type"
                                [placeholder]="!!question.placeholder ? question.placeholder : ''"
-                               [label]="question.label" [selectOptions]="[]" [id]="question.id"></app-step-form-input>
+                               [label]="question.label" [selectOptions]="!! question.selectOptions ? question.selectOptions : []" [id]="question.id"></app-step-form-input>
         </div>
         <div>
           <button *ngIf="i > 0" mat-raised-button color="accent" matStepperPrevious>Back</button>
@@ -30,7 +35,7 @@
   </mat-vertical-stepper>
 </div>
 
-<div *ngIf="direction === 'horizontal'">
+<!--div *ngIf="direction === 'horizontal'">
   <mat-horizontal-stepper [linear]="isLinear" #stepper>
     <mat-step *ngFor="let formGroup of formGroups; let i = index;" [stepControl]="formGroup.group">
       <ng-template matStepLabel>{{ formGroup.label }}</ng-template>
@@ -57,4 +62,7 @@
     </mat-step>
 
   </mat-horizontal-stepper>
+</div-->
+
+
 </div>

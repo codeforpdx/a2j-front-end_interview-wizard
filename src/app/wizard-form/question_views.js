@@ -1,47 +1,50 @@
 import {Validators} from "@angular/forms";
 
-export const mockViews = {
+export const STEP_QUESTIONS = {
   question_views: {
     viewList: [
       {
         viewName: 'Address History',
         viewQuestions: [
           {
-            question_name: 'Address Line 1',
-            material_type: 'input',
+            id: 'Address Line 1',
+            label: 'Address',
+            type: 'text',
+            required: true
+          },
+          {
+            id: 'City',
+            placeholder: 'City',
+            type: 'text',
             required: 'true'
           },
           {
-            question_name: 'Address Line 2',
-            material_type: 'input',
+            id: 'State',
+            placeholder: 'State',
+            type: 'text',
             required: 'true'
           },
           {
-            question_name: 'City',
-            material_type: 'autocomplete',
+            id: 'Zipcode',
+            placeholder: 'Zip Code',
+            type: 'number',
+            validators: [Validators.minLength(5), Validators.maxLength(9)],
             required: 'true'
           },
           {
-            question_name: 'State',
-            material_type: 'autocomplete',
-            required: 'true'
-          },
-          {
-            question_name: 'Zip Code',
-            material_type: 'autocomplete',
-            required: 'true'
-          },
-          {
+            id: 'Start Date',
             question_name: 'Start Date',
             material_type: 'datepicker',
             required: 'true'
           },
           {
+            id: 'End Date',
             question_name: 'End Date',
             material_type: 'datepicker',
             required: 'true'
           },
           {
+            id: 'Current Residence?',
             question_name: 'Current Residence?',
             material_type: 'checkbox',
             required: 'true'
@@ -73,6 +76,7 @@ export const mockViews = {
   }
 };
 
+/*
 export const STEP_QUESTIONS = {
   question_views: {
     viewList: [
@@ -130,3 +134,5 @@ export const STEP_QUESTIONS = {
     ]
   }
 };
+
+*/

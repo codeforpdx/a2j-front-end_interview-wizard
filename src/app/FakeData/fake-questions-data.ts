@@ -1,6 +1,8 @@
 import { Validators } from '@angular/forms';
 import { StepFormQuestionsGroup } from '../stepper/stepper.component';
 
+import { STATE_LIST } from './state_list';
+
 export const FAKE_STEP_QUESTIONS: StepFormQuestionsGroup[] = [
   {
     name: 'Address',
@@ -21,7 +23,8 @@ export const FAKE_STEP_QUESTIONS: StepFormQuestionsGroup[] = [
       {
         id: 'State',
         placeholder: 'State',
-        type: 'text',
+        type: 'select',
+        selectOptions: STATE_LIST,
         validators: [Validators.required],
       },
       {
@@ -30,6 +33,18 @@ export const FAKE_STEP_QUESTIONS: StepFormQuestionsGroup[] = [
         type: 'number',
         validators: [Validators.minLength(5), Validators.maxLength(9), Validators.required],
       },
+      {
+        id: 'What day did you start living here?',
+        placeholder: 'Start Date',
+        type: 'date',
+        validators: [Validators.required],
+      },
+      {
+        id: 'What day did you stop living here?',
+        placeholder: 'End Date',
+        type: 'date',
+        validators: [Validators.required],
+      }
     ]
   },
   {
@@ -60,6 +75,19 @@ export const FAKE_STEP_QUESTIONS: StepFormQuestionsGroup[] = [
         type: 'number',
         validators: [Validators.minLength(5), Validators.maxLength(9)],
       },
+      {
+        id: 'What day did you start living here?',
+        placeholder: 'Start Date',
+        type: 'date',
+        validators: [Validators.required],
+      },
+      {
+        id: 'What day did you stop living here?',
+        placeholder: 'End Date',
+        type: 'date',
+        validators: [Validators.required],
+      }
+
     ]
-  }
+  },
 ];

@@ -1,5 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+
+/*==============
+Angular Material imports
+==============*/
+
+import {STATE_LIST} from '../../FakeData/state_list';
+
 
 export type StepFormInputType = 'text' | 'textarea' | 'date' | 'number' | 'select';
 
@@ -8,7 +15,7 @@ export type StepFormInputType = 'text' | 'textarea' | 'date' | 'number' | 'selec
   templateUrl: './step-form-input.component.html',
   styleUrls: ['./step-form-input.component.scss']
 })
-export class StepFormInputComponent {
+export class StepFormInputComponent implements OnInit {
   @Input() formGroup: FormGroup;
   @Input() id: string | number;
   @Input() label: string;
@@ -16,4 +23,12 @@ export class StepFormInputComponent {
   @Input() selectOptions: string[]; // Only needed if type is select.
   @Input() formControl: FormControl;
   @Input() placeholder: string;
+
+  @Input() state_list: string[];
+
+
+  ngOnInit(){
+    console.log('this:',this.id)
+  }
+
 }
