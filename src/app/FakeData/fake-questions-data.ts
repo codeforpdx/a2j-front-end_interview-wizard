@@ -11,7 +11,7 @@ export const FAKE_STEP_QUESTIONS: StepFormQuestionsGroup[] = [
       {
         id: 'Street',
         label: 'Street',
-        type: 'text',
+        type: 'autoComplete',
         validators: [Validators.required],
       },
       {

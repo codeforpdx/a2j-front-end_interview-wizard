@@ -8,7 +8,7 @@ Angular Material imports
 import {STATE_LIST} from '../../FakeData/state_list';
 
 
-export type StepFormInputType = 'text' | 'textarea' | 'date' | 'number' | 'select';
+export type StepFormInputType = 'text' | 'textarea' | 'date' | 'number' | 'select' | 'autoComplete';
 
 @Component({
   selector: 'app-step-form-input',
