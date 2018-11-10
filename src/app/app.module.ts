@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {
   MatButtonModule, MatCheckboxModule, MatInputModule,
-  MatSelectModule, MatStepperModule, MatDatepickerModule, DateAdapter, MatNativeDateModule
+  MatSelectModule, MatStepperModule, MatDatepickerModule, DateAdapter, MatNativeDateModule, MatAutocompleteModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { StepFormInputComponent } from './stepper/step-form-input/step-form-inpu
 import { StepperComponent } from './stepper/stepper.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { AutocompleteInputComponent } from './autocomplete-input/autocomplete-input.component';
 
 /*==========
 Material Imports
@@ -29,7 +31,8 @@ const material_modules = [
   MatInputModule,
   MatSelectModule,
   MatDatepickerModule,
-  MatNativeDateModule 
+  MatNativeDateModule,
+  MatAutocompleteModule
 ];
 
 @NgModule({
@@ -39,7 +42,8 @@ const material_modules = [
     UserDocumentsListComponent,
     WizardModalCardComponent,
     StepFormInputComponent,
-    StepperComponent
+    StepperComponent,
+    AutocompleteInputComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,10 +51,11 @@ const material_modules = [
     FormsModule,
     ReactiveFormsModule,
     [BrowserAnimationsModule],
+    HttpClientModule,
     ...material_modules
   ],
   providers: [
-    MatDatepickerModule 
+    MatDatepickerModule
   ],
   bootstrap: [AppComponent]
 })

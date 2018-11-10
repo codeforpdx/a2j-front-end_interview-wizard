@@ -27,8 +27,8 @@ export class StepFormInputComponent implements OnInit {
   @Input() state_list: string[];
 
 
-  ngOnInit(){
-    console.log('this:',this.id)
+  ngOnInit() {
+    console.log('this:', this.id);
   }
 
 }

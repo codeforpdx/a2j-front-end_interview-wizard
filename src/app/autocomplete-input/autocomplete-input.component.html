@@ -1,0 +1,14 @@
+<!-- Search AutoComplete -->
+<form class="example-form" [formGroup]="autoCompleteGroup">
+  <mat-form-field class="search-input-wrapper">
+    <input matInput placeholder="Street Address" aria-label="State" [matAutocomplete]="auto" formControlName="searchControl" (input)="handleSearchInput($event)">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let result of (searchResults$ | async)" [value]="result.place_name">
+        <div class="result-response">
+          {{result.place_name}}
+        </div>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+<!-- /Search AutoComplete -->
