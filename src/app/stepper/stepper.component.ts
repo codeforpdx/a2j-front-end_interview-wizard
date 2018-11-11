@@ -36,7 +36,7 @@ export class StepperComponent implements OnInit {
   @Input() questionGroup: StepFormQuestionsGroup[];
   @Input() finishedMessage: FinishedMessage = {
     label: 'Done',
-    text: 'You are now done.'
+    text: 'You are now done.' 
   };
   @Input() direction: 'horizontal' | 'vertical' = 'vertical';
   isLinear = true;
@@ -63,6 +63,15 @@ export class StepperComponent implements OnInit {
           controls: controls,
           label: group.label
         }];
+
+        /*============
+        Hide any elements set to hidden.  Use template logic to pull in the corresponding elements
+        ============*/
+        var length = this.formGroups.length -1 ;
+        for (let subQuestions in this.formGroups[length].questions){
+          if (subQuestions.hidden && )
+        }
+
         console.log("Controls are:",controls)
     }
     this.formsReady = true;
