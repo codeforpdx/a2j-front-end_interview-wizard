@@ -4,7 +4,7 @@
 
 
 <div *ngIf="direction === 'vertical'">
-  <mat-vertical-stepper [linear]="isLinear" #stepper>
+  <mat-vertical-stepper linear #stepper >
 
   <!-- todo: Find a better way of providing conditional than just cut and pasting the middle of horizontal and vertical. -->
 
@@ -14,7 +14,7 @@
         <div *ngFor="let question of formGroup.questions">
           <app-step-form-input [formGroup]="formGroup.group" [inputType]="question.type"
                                [placeholder]="!!question.placeholder ? question.placeholder : ''"
-                               [label]="question.label" [selectOptions]="!! question.selectOptions ? question.selectOptions : []" [id]="question.id"></app-step-form-input>
+                               [label]="question.label" [selectOptions]="!! question.selectOptions ? question.selectOptions : []" [id]="question.id" ></app-step-form-input>
         </div>
         <div>
           <button *ngIf="i > 0" mat-raised-button color="accent" matStepperPrevious>Back</button>
