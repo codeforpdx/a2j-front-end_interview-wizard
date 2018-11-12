@@ -37,6 +37,7 @@ export const FAKE_STEP_QUESTIONS: StepFormQuestionsGroup[] = [
         label: 'Date of Birth',
         type: 'date',
         validators: [],
+        hidden: true
       },
       {
         id: 'petitioner_ssn',

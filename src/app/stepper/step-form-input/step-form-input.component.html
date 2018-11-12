@@ -5,33 +5,33 @@
   </label>
 
   <mat-form-field *ngIf="inputType === 'text'">
-    <input matInput [placeholder]="placeholder" [formControlName]="id">
+    <input hidden="hideElement" matInput [placeholder]="placeholder" [formControlName]="id">
   </mat-form-field>
 
   <mat-form-field *ngIf="inputType === 'textarea'">
-    <textarea matInput [placeholder]="placeholder" [formControlName]="id"></textarea>
+    <textarea hidden="hideElement" matInput [placeholder]="placeholder" [formControlName]="id"></textarea>
   </mat-form-field>
 
   <!--Todo: Needs Select / Scrub / Date Picker -->
 
   <mat-form-field *ngIf="inputType === 'select' && id ==='State'">
     <mat-select matInput [formControlName]="id">
-      <mat-option *ngFor="let option of selectOptions" [value]="option">{{option}}</mat-option>
+      <mat-option hidden="hideElement" *ngFor="let option of selectOptions" [value]="option">{{option}}</mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field *ngIf="inputType === 'number'">
-    <input matInput placeholder="0" [formControlName]="id">
+    <input hidden="hideElement" matInput placeholder="0" [formControlName]="id">
   </mat-form-field>
 
   <mat-form-field *ngIf="inputType === 'date'">
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+    <input hidden="hideElement" matInput [matDatepicker]="picker" placeholder="Choose a date">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
   <div *ngIf="inputType === 'autoComplete'">
-    <app-autocomplete-input [strictOption]="true"></app-autocomplete-input>
+    <app-autocomplete-input hidden="hideElement" [strictOption]="true"></app-autocomplete-input>
   </div>
 
 </div>

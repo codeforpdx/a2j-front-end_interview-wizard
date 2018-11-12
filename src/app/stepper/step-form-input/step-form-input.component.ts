@@ -26,6 +26,8 @@ export class StepFormInputComponent implements OnInit {
 
   @Input() state_list: string[];
 
+  @Input() hideElement: boolean;
+
 
   ngOnInit() {
     console.log('this:', this.id);
