@@ -16,7 +16,7 @@ export default class behaviorHash {
 		let observedBehavior = behavior;
 		let observedField = field;
 
-		if()
+		//if()
 	}
 
 
