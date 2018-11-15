@@ -15,6 +15,7 @@
   <mat-form-field *ngIf="inputType === 'select'">
     <mat-select matInput [formControlName]="id">
       <mat-option hidden="hideElement" *ngFor="let option of selectOptions" [value]="option">{{option}}</mat-option>
+    </mat-select>
   </mat-form-field>
 
   <!--Todo: Needs Select / Scrub / Date Picker -->

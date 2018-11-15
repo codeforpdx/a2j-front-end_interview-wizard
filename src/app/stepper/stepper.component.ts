@@ -80,42 +80,21 @@ export class StepperComponent implements OnInit {
         this.answers = {...this.answers, [cur.id]: ''};
         return acc = {...acc, [cur.id]: this._formBuilder.control('', Validators.apply([...cur.validators]))};
       }, {});
-      var currentQuestion = this.formGroups[this.formGroups.length - 1];
       this.formGroups = [
         ...this.formGroups,
         {
           group: this._formBuilder.group(controls),
           questions: group.questions,
           controls: controls,
-          label: group.label,
-          hidden: this.setHidden(currentQuestion)
+          label: group.label
+          //hidden: this.setHidden(currentQuestion)
         }];
 
         /*============
         Hide any elements set to hidden.  Use template logic to pull in the corresponding elements
         ============*/
         }
-        /*
-        for (let subQuestionObject of this.formGroups[this.formGroups.length - 1].questions){
-          console.log("subQuestionObject is:"+ Object.getOwnPropertyNames(subQuestionObject))
-          if (subQuestionObject.prototype.hasOwnProperty('hidden')){
-            if (subQuestionObject.hidden === 'True'){
-              //hide this object 
-                //HOW???????
-                //set an element on this as 
-
-                //"unused label".  How do I assign this down?
-                  //Do I pass it through nGX down to the next element through each 
-                
-                  //Perhaps I should do this on the lower level?
-                question.hideElement: true
-            }
-          }
-          for(let subQuestion of subQuestionObject){
-            console.log("subQuestions are"+subQuestion);
-          }
-        }
-        */    
+  
     this.formsReady = true;
   }
 
