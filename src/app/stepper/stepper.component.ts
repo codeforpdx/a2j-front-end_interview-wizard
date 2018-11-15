@@ -13,9 +13,10 @@ export interface StepFormQuestion {
   label?: string;
   placeholder?: string;
   type: StepFormInputType;
-  selectOptions?: string[];
+  selectOptions?: any[];
   validators?: any[];
   hidden?: boolean;
+  behaviors?: any[];
 }
 
 

@@ -211,4 +211,55 @@ export const FAKE_STEP_QUESTIONS: StepFormQuestionsGroup[] = [
 
     ]
   },
+   {
+    name: 'Children Details',
+    label: '',
+    questions: [
+      {
+        id: 'child_number',
+        label: 'Enter the number of children you are claiming:',
+        type: 'text',
+        validators: [],
+        selectOptions: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      },
+      {
+        id: 'City',
+        placeholder: 'City',
+        type: 'text',
+        validators: [],
+        behaviors: [
+          {
+            behaviorName: 'hideUntil',
+            watchField: 'child_number',
+            condition: '> 0'
+          }
+        ]
+      },
+      {
+        id: 'State',
+        placeholder: 'State',
+        type: 'text',
+        validators: [],
+      },
+      {
+        id: 'Zipcode',
+        placeholder: 'Zip Code',
+        type: 'number',
+        validators: [Validators.minLength(5), Validators.maxLength(9)],
+      },
+      {
+        id: 'What day did you start living here?',
+        placeholder: 'Start Date',
+        type: 'date',
+        validators: [Validators.required],
+      },
+      {
+        id: 'What day did you stop living here?',
+        placeholder: 'End Date',
+        type: 'date',
+        validators: [Validators.required],
+      }
+
+    ]
+  },  
 ];
