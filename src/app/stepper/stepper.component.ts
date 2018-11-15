@@ -15,6 +15,7 @@ export interface StepFormQuestion {
   type: StepFormInputType;
   selectOptions?: string[];
   validators?: any[];
+  hidden?: boolean;
 }
 
 
@@ -36,13 +37,36 @@ export class StepperComponent implements OnInit {
   @Input() questionGroup: StepFormQuestionsGroup[];
   @Input() finishedMessage: FinishedMessage = {
     label: 'Done',
-    text: 'You are now done.'
+    text: 'You are now done.' 
   };
   @Input() direction: 'horizontal' | 'vertical' = 'vertical';
   isLinear = true;
   formGroups: any = [];
   answers: AnswerModels = {};
   formsReady = false;
+
+
+  setHidden(currentQuestion){
+    for (let subQuestionObject of currentQuestion){
+      console.log("subQuestionObject is:"+ Object.getOwnPropertyNames(subQuestionObject))
+      if (subQuestionObject.prototype.hasOwnProperty('hidden')){
+        if (subQuestionObject.hidden === true){
+          //hide this object 
+            //HOW???????
+            //set an element on this as 
+
+            //"unused label".  How do I assign this down?
+              //Do I pass it through nGX down to the next element through each 
+            
+              //Perhaps I should do this on the lower level?
+            return true;
+        }
+      }
+      for(let subQuestion of subQuestionObject){
+        console.log("subQuestions are"+subQuestion);
+      }
+    } 
+  }
 
   constructor(private _formBuilder: FormBuilder) {}
 
@@ -55,16 +79,42 @@ export class StepperComponent implements OnInit {
         this.answers = {...this.answers, [cur.id]: ''};
         return acc = {...acc, [cur.id]: this._formBuilder.control('', Validators.apply([...cur.validators]))};
       }, {});
+      var currentQuestion = this.formGroups[this.formGroups.length - 1];
       this.formGroups = [
         ...this.formGroups,
         {
           group: this._formBuilder.group(controls),
           questions: group.questions,
           controls: controls,
-          label: group.label
+          label: group.label,
+          hidden: this.setHidden(currentQuestion)
         }];
-        console.log("Controls are:",controls)
-    }
+
+        /*============
+        Hide any elements set to hidden.  Use template logic to pull in the corresponding elements
+        ============*/
+        }
+        /*
+        for (let subQuestionObject of this.formGroups[this.formGroups.length - 1].questions){
+          console.log("subQuestionObject is:"+ Object.getOwnPropertyNames(subQuestionObject))
+          if (subQuestionObject.prototype.hasOwnProperty('hidden')){
+            if (subQuestionObject.hidden === 'True'){
+              //hide this object 
+                //HOW???????
+                //set an element on this as 
+
+                //"unused label".  How do I assign this down?
+                  //Do I pass it through nGX down to the next element through each 
+                
+                  //Perhaps I should do this on the lower level?
+                question.hideElement: true
+            }
+          }
+          for(let subQuestion of subQuestionObject){
+            console.log("subQuestions are"+subQuestion);
+          }
+        }
+        */    
     this.formsReady = true;
   }
 

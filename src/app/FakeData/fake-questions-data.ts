@@ -5,12 +5,133 @@ import { STATE_LIST } from './state_list';
 
 export const FAKE_STEP_QUESTIONS: StepFormQuestionsGroup[] = [
   {
-    name: 'Address',
-    label: 'Please enter your current address.',
+    name: 'Petitioner Details',
+    label: 'Please enter your personal information below',
+    questions: [
+      {
+        id: 'petitioner_first_name',
+        label: 'First name',
+        type: 'text',
+        validators: [],
+      },
+      {
+        id: 'petitioner_middle_name',
+        label: 'Middle Name',
+        type: 'text',
+        validators: [],
+      },
+      {
+        id: 'petitioner_last_name',
+        label: 'Last Name',
+        type: 'text',
+        validators: [],
+      },
+      {
+        id: 'petitioner_maiden_name',
+        label: 'Maiden Name',
+        type: 'text',
+        validators: [],
+      },
+      {
+        id: 'petitioner_dob',
+        label: 'Date of Birth',
+        type: 'date',
+        validators: [],
+        hidden: true
+      },
+      {
+        id: 'petitioner_ssn',
+        label: 'Social Security Number',
+        type: 'text',
+        validators: [],
+      },
+      {
+        id: 'petitioner_dob',
+        label: 'Driver\'s License #',
+        type: 'text',
+        validators: [],
+      },
+      {
+        id: 'petitioner_drivers_license',
+        label: 'Nickname',
+        type: 'text',
+        validators: [],
+      },
+      {
+        id: 'petitioner_nickname',
+        label: 'If you have another name you prefer to be referred to as, please list it here.',
+        type: 'text',
+        validators: [],
+      }
+    ]
+  },
+  {
+    name: 'Respondent Details',
+    label: 'Please provide the following details about the person you are filing against',
+    questions: [
+      {
+        id: 'respondent_first_name',
+        label: 'First name',
+        type: 'text',
+        validators: [],
+      },
+      {
+        id: 'respondent_middle_name',
+        label: 'Middle Name',
+        type: 'text',
+        validators: [],
+      },
+      {
+        id: 'respondent_last_name',
+        label: 'Last Name',
+        type: 'text',
+        validators: [],
+      },
+      {
+        id: 'respondent_maiden_name',
+        label: 'Maiden Name',
+        type: 'text',
+        validators: [],
+      },
+      {
+        id: 'respondent_dob',
+        label: 'Date of Birth',
+        type: 'date',
+        validators: [],
+      },
+      {
+        id: 'respondent_ssn',
+        label: 'Social Security Number',
+        type: 'text',
+        validators: [],
+      },
+      {
+        id: 'respondent_dob',
+        label: 'DOB',
+        type: 'text',
+        validators: [],
+      },
+      {
+        id: 'respondent_drivers_license',
+        label: 'Driver\s License',
+        type: 'text',
+        validators: [],
+      },
+      {
+        id: 'respondent_nickname',
+        label: 'If the respondent has another name you prefer to be referred to as, please list it here.',
+        type: 'text',
+        validators: [],
+      }
+    ]
+  },
+  {
+    name: 'Address Details',
+    label: 'Please enter your address.',
     questions: [
       {
         id: 'Street',
-        label: 'Street',
+        label: 'Address',
         type: 'autoComplete',
         validators: [Validators.required],
       },
@@ -18,20 +139,19 @@ export const FAKE_STEP_QUESTIONS: StepFormQuestionsGroup[] = [
         id: 'City',
         placeholder: 'City',
         type: 'text',
-        validators: [Validators.required],
+        validators: [],
       },
       {
         id: 'State',
         placeholder: 'State',
-        type: 'select',
-        selectOptions: STATE_LIST,
-        validators: [Validators.required],
+        type: 'text',
+        validators: [],
       },
       {
         id: 'Zipcode',
         placeholder: 'Zip Code',
         type: 'number',
-        validators: [Validators.minLength(5), Validators.maxLength(9), Validators.required],
+        validators: [Validators.minLength(5), Validators.maxLength(9)],
       },
       {
         id: 'What day did you start living here?',
@@ -45,6 +165,7 @@ export const FAKE_STEP_QUESTIONS: StepFormQuestionsGroup[] = [
         type: 'date',
         validators: [Validators.required],
       }
+
     ]
   },
   {
