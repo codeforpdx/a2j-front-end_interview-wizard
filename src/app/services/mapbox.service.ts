@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { MAPBOX_API_KEY } from '../../local/mapbox.local.js';
+import { MAPBOX_API_KEY } from '../local/mapbox.local.js';
 
 export interface MapboxFeatureResponse {
   bbox: any; // (4) [-179.9, -14.6528, -64.464198, 71.540724]
